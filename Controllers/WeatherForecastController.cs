@@ -43,7 +43,7 @@ namespace TestAPI.Controllers
         [Route("ValidatePerson")]
         public string ValidatePerson([FromBody]PersonRequest request)
         {
-            return $"The person information you passed is: {request.FirstName} {request.LastName}";
+            return $"The personal information you passed is: {request.FirstName} {request.LastName}";
         }
 
 
