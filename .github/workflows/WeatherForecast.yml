@@ -4,7 +4,7 @@ on:
   push:
     branches: [main]
     paths: 
-      - 'Controllers/WeatherForecastController.cs'
+      - "Controllers/WeatherForecastController.cs"
 
 permissions:
   contents: write
@@ -19,6 +19,6 @@ jobs:
         with:
           runllm_api_key: ${{ secrets.RUNLLM_API_KEY }}
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          output_spec_file: "docs/WeatherForecast.yml
-		  base_branch: "main" # Optional
+          output_spec_file: "docs/WeatherForecast.yml"
+          base_branch: "main" # Optional
           input_api_file: "Controllers/WeatherForecastController"
