@@ -1,0 +1,24 @@
+name: Maintain OpenAPI Spec
+
+on:
+  push:
+    branches: [main]
+    paths: 
+      - 'Controllers/WeatherForecastController.cs'
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  update-docs:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Generate OpenAPI Documentation
+        uses: runllm/generate-docs@v1
+        with:
+          runllm_api_key: ${{ secrets.RUNLLM_API_KEY }}
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          output_spec_file: "docs/WeatherForecast.yml
+		  base_branch: "main" # Optional
+          input_api_file: "Controllers/WeatherForecastController"
